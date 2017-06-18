@@ -8,17 +8,13 @@ public class MaxProfit {
 	}
 	
 	public int maxProfit(int[] prices) {
-        if(prices.length <= 1) return 0;
-        int[] buy = new int[prices.length];
-        int[] sell = new int[prices.length];
-        buy[0] = -prices[0];
-        buy[1] = Math.max(buy[0], -prices[1]);
-        sell[1] = Math.max(0, buy[0] + prices[1]);
-        for(int i=2; i<prices.length; i++) {
-            buy[i] = Math.max(buy[i-1], sell[i-2] - prices[i]);
-            sell[i] = Math.max(sell[i-1], buy[i-1] + prices[i]);
+        int buy1 = Integer.MIN_VALUE, sell1 = 0, buy2 = Integer.MIN_VALUE, sell2 = 0;
+        for(int price : prices) {
+            buy1 = Math.max(buy1, -price);
+            sell1 = Math.max(sell1, price + buy1);
+            buy2 = Math.max(buy2, sell1 - price);
+            sell2 = Math.max(sell2, price + buy2);
         }
-        
-        return sell[prices.length-1];
+        return sell2;
     }
 }

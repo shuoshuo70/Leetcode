@@ -1,7 +1,6 @@
 package LC43;
 
 public class Class2 {
-
 	public int minSteps(int n) {
         // n <= 1
         if(n <= 1) return 0;

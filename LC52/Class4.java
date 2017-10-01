@@ -7,8 +7,6 @@ Each subarray will be of size k, and we want to maximize the sum of all 3*k entr
 Return the result as a list of indices representing the starting position of each interval (0-indexed). If there are multiple answers, return the lexicographically smallest one.
  */
 
-import java.util.Arrays;
-
 public class Class4 {
 	public int[] maxSumOfThreeSubarrays(int[] nums, int k) {
         int len = nums.length, maxSum = Integer.MIN_VALUE;
